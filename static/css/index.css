@@ -108,6 +108,8 @@ body {
 }
 
 .publication-body img {
+  width: auto;
+  height: 400px;
 }
 
 .results-carousel {

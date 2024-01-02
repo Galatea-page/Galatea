@@ -53,22 +53,15 @@
                 <div class="columns is-centered">
                     <div class="column has-text-centered">
                         <h1 class="title is-1 publication-title">A Unified Geometry-aware Source Localization and Separation Framework for Ad-hoc Microphone Array</h1>
-                        <!-- <div class="is-size-5 publication-authors"> -->
-                            <!-- Paper authors -->
-                            <!-- <span class="author-block">
-                                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First
-                                    Author</a><sup>*</sup>,</span>
-                            <span class="author-block">
-                                <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second
-                                    Author</a><sup>*</sup>,</span>
-                            <span class="author-block">
-                                <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                            </span> -->
-                        <!-- </div> -->
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">Jingjie Fan,</span>
+                            <span class="author-block">Cong Pang,</span>
+                            <span class="author-block">Rongzhi Gu,</span>
+                            <span class="author-block">Yi Luo</span>
+                        </div>
 
                         <div class="is-size-5 publication-authors">
-                            <span class="author-block">Hands-free Speech Communication and Microphone Arrays
-                            (HSCMA 2024)</span>
+                            <span class="author-block">ICASSP 2024 Satellite Workshop</span>
                             <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
                         </div>
                     </div>
@@ -102,7 +95,90 @@
     </section>
     <!-- End paper abstract -->
 
-
+    <!-- Image -->
+    <section class="hero is-small">
+        <div class="hero-body">
+            <div class="container">
+                <div id="publication-body" class="publication-body img">
+                    <h2 class="title is-3">Validation of multi-look DFs across arrays</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            In order to verify that the essential contents of multi-look DFs are similar and their variations are relatively small across different microphone arrays, the below figure illustrates multi-look DFs computed from a 4 mic LA, a 6 mic CA and a 5 mic ad-hoc array with the same simulation configuration. The two speakers are located at 0° and 180° respect to the microphone array center, respectively.
+                        </p>
+                    </div>
+                    <div class="img has-text-centered">
+                        <!-- Your image here -->
+                        <img src="static/images/DFs.png" alt="the image of lps" />
+                        <h2 class="subtitle has-text-justified">
+                            A simulated mixture sample with target speech sources located at 0° and 180°, respectively.  
+                            (a) The geometry of three types of microphone arrays including 4 mic linear array (LA), 6 mic circular array (CA) and 5 mic ad-hoc array. 
+                            (b) The logarithm power spectrum (LPS) of mixture and target speech signals. 
+                            (c) Multi-look DFs extracted at four directions with different microphone arrays.
+                        </h2>
+                    </div>
+                    <div class="content">
+                        <table>
+                            <thead>
+								<tr align="center">
+									<th><center><h3>Array geometry</h3></center></th>
+									<th><center><h3>Mixture (multi-channel)</h3></center></th>
+									<th><center><h3>Source 1</h3></center> </th>
+									<th><center><h3>Source 2</h3></center></th>
+								</tr>
+							</thead>
+                            <tbody>
+                                <tr style="border-top:1px solid black" align="center">
+                                    <td>
+                                        <center>4 mic LA</center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
+                                        <source src="/static/audios/DFs/4mic_LA.wav">
+                                    </audio></td></td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
+                                            <source src="/static/audios/DFs/4mic_LA_s1.wav">
+                                        </audio></td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
+                                            <source src="/static/audios/DFs/4mic_LA_s2.wav">
+                                        </audio></td>
+                                </tr>
+                                <tr style="border-top:1px solid black" align="center">
+                                    <td>
+                                        <center>6 mic CA</center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
+                                            <source src="static/audios/DFs/6mic_CA.wav">
+                                        </audio></td>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
+                                            <source src="static/audios/DFs/6mic_CA_s1.wav">
+                                        </audio></td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
+                                            <source src="static/audios/DFs/6mic_CA_s2.wav">
+                                        </audio></td>
+                                </tr>
+                                <tr style="border-top:1px solid black" align="center">
+                                    <td>
+                                        <center>5 mic ad-hoc</center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
+                                            <source src="static/audios/DFs/5mic_adhoc.wav">
+                                        </audio></td>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
+                                            <source src="static/audios/DFs/5mic_adhoc_s1.wav">
+                                        </audio></td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
+                                            <source src="static/audios/DFs/5mic_adhoc_S2.wav">
+                                        </audio></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End image -->
 
     <footer class="footer">
         <div class="container">
@@ -111,12 +187,13 @@
                     <div class="content">
 
                         <p>
+                            Stay tuned! Something new is coming :)
+                            <br><br>
                             This page was built using the <a
                                 href="https://github.com/eliahuhorwitz/Academic-project-page-template"
-                                target="_blank">Academic Project Page Template</a> which was adopted from the <a
-                                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-                            You are free to borrow the of this website, we just ask that you link back to this page in
-                            the footer. <br> This website is licensed under a <a rel="license"
+                                target="_blank">Academic Project Page Template</a> which was adopted from the <a
+                                href="https://nerfies.github.io" target="_blank">Nerfies </a>project page.
+                            <br> This website is licensed under a <a rel="license"
                                 href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
                                 Commons Attribution-ShareAlike 4.0 International License</a>.
                         </p>
