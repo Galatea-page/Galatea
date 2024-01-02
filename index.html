@@ -1,111 +1,137 @@
-<!DOCTYPE HTML>
-<!--
-	Editorial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+<!DOCTYPE html>
 <html>
 
 <head>
-	<title>Galatea</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
+    <meta charset="utf-8">
+    <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+    <!-- Replace the content tag with appropriate information -->
+    <meta name="description" content="DESCRIPTION META TAG">
+    <meta property="og:title" content="SOCIAL MEDIA TITLE TAG" />
+    <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG" />
+    <meta property="og:url" content="URL OF THE WEBSITE" />
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+    <meta property="og:image" content="static/image/your_banner_image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+
+    <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+    <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+    <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Keywords for your paper to be indexed by-->
+    <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>Galatea</title>
+    <!-- <link rel="icon" type="image/x-icon" href="static/images/favicon.ico"> -->
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="static/css/bulma.min.css">
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="static/js/fontawesome.all.min.js"></script>
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/bulma-slider.min.js"></script>
+    <script src="static/js/index.js"></script>
 </head>
 
-<body class="is-preload">
-
-	<!-- Wrapper -->
-	<div id="wrapper">
-
-		<!-- Main -->
-		<div id="main">
-			<div class="inner">
-				<!-- Banner -->
-				<section id="banner">
-					<div class="content">
-						<header>
-							<h2 align="center">A Unified Geometry-aware Source Localization and Separation Framework for
-								Ad-hoc Microphone Array</h2>
-							<p align="center">Jingjie Fan, Rongzhi Gu, Yi Luo</p>
-						</header>
-						<h3>Abstract:</h3>
-						<p>
-							Many of the existing systems for multi-channel sound source localization and separation are built on or designed for
-							specific microphone array geometries, which means that for a new scenario where the array geometry or number of
-							microphones is different, the system needs to be re-designed or re-trained. Recent attempts have been made in building
-							neural network models for ad-hoc microphone arrays, while they cannot fully leverage the array-dependent information
-							used by array-specific models. In this paper, we propose Galatea, a unified geometry-aware source localization and
-							separation framework that can build models for both ad-hoc arrays and geometry-specific arrays. We introduce random
-							array geometry sampling with a fast on-the-fly data simulation process for general ad-hoc arrays, geometry-dependent
-							feature extraction for array-specific finetuning, and a novel model architecture to boost both the localization and
-							separation performance. Experimental results on different array geometries demonstrate the effectiveness of Galatea.
-							<!-- <br><br><strong><a href="https://arxiv.org/pdf/2308.16892.pdf">[PDF]</a></strong> arxiv论文的链接 -->
-						</p>
-
-					</div>
-				</section>
-
-				<section id="stay">
-					<header class="major">
-						<h3>Stay tuned! Something new is coming :) </h3>
-					</header>
-				</section>
-			</div>
-		</div>
-
-		<!-- Sidebar -->
-		<div id="sidebar">
-			<div class="inner">
-
-				<!-- Menu -->
-				<nav id="menu">
-					<header class="major">
-						<h2>Menu</h2>
-					</header>
-					<p></p>
-					<ul>
-						<li><a href="#banner">Abstract</a></li>
-					</ul>
-				</nav>
-
-				<!-- Section -->
-				<section>
-					<header class="major">
-						<h2>Related works</h2>
-					</header>
-					<p></p>
-					<p>[1] Yi Luo and Jianwei Yu.
-						"Music Source Separation With Band-Split RNN", IEEE/ACM Transactions on Audio, Speech, and
-						Language Processing, 2023.
-					</p>
-
-					<p>[2] Rongzhi Gu, Shi-Xiong Zhang, Meng Yu, et al. "3D spatial features for Multi-channel Target
-						Speech Separation", ASRU 2021.
-						<strong><a href="https://moplast.github.io/3d.github.io/">Demos</a></strong>
-					</p>
-
-				</section>
+<body>
 
 
-				<footer id="footer">
-					<p class="copyright">
-						<center><img src="images/tencent_icon.png" height="100px" alt=""></center>
-						<center>© Aug. 2023 </center>
-					</p>
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">A Unified Geometry-aware Source Localization and Separation Framework for Ad-hoc Microphone Array</h1>
+                        <!-- <div class="is-size-5 publication-authors"> -->
+                            <!-- Paper authors -->
+                            <!-- <span class="author-block">
+                                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First
+                                    Author</a><sup>*</sup>,</span>
+                            <span class="author-block">
+                                <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second
+                                    Author</a><sup>*</sup>,</span>
+                            <span class="author-block">
+                                <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
+                            </span> -->
+                        <!-- </div> -->
 
-				</footer>
-			</div>
-		</div>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">Hands-free Speech Communication and Microphone Arrays
+                            (HSCMA 2024)</span>
+                            <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-	</div>
+    <!-- Paper abstract -->
+    <section class="section hero is-light">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            Many of the existing systems for multi-channel sound source localization and separation are built on or designed for
+                            specific microphone array geometries, which means that for a new scenario where the array geometry or number of
+                            microphones is different, the system needs to be re-designed or re-trained. Recent attempts have been made in building
+                            neural network models for ad-hoc microphone arrays, while they cannot fully leverage the array-dependent information
+                            used by array-specific models. In this paper, we propose Galatea, a unified geometry-aware source localization and
+                            separation framework that can build models for both ad-hoc arrays and geometry-specific arrays. We introduce random
+                            array geometry sampling with a fast on-the-fly data simulation process for general ad-hoc arrays, geometry-dependent
+                            feature extraction for array-specific finetuning, and a novel model architecture to boost both the localization and
+                            separation performance. Experimental results on different array geometries demonstrate the effectiveness of Galatea.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End paper abstract -->
 
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+
+                        <p>
+                            This page was built using the <a
+                                href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                                target="_blank">Academic Project Page Template</a> which was adopted from the <a
+                                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+                            You are free to borrow the of this website, we just ask that you link back to this page in
+                            the footer. <br> This website is licensed under a <a rel="license"
+                                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+                                Commons Attribution-ShareAlike 4.0 International License</a>.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Statcounter tracking code -->
+
+    <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
 
 </body>
 
