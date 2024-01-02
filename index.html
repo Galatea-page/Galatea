@@ -52,7 +52,8 @@
             <div class="container is-max-desktop">
                 <div class="columns is-centered">
                     <div class="column has-text-centered">
-                        <h1 class="title is-1 publication-title">A Unified Geometry-aware Source Localization and Separation Framework for Ad-hoc Microphone Array</h1>
+                        <h1 class="title is-1 publication-title">A Unified Geometry-aware Source Localization and
+                            Separation Framework for Ad-hoc Microphone Array</h1>
                         <div class="is-size-5 publication-authors">
                             <span class="author-block">Jingjie Fan,</span>
                             <span class="author-block">Cong Pang,</span>
@@ -78,15 +79,24 @@
                     <h2 class="title is-3">Abstract</h2>
                     <div class="content has-text-justified">
                         <p>
-                            Many of the existing systems for multi-channel sound source localization and separation are built on or designed for
-                            specific microphone array geometries, which means that for a new scenario where the array geometry or number of
-                            microphones is different, the system needs to be re-designed or re-trained. Recent attempts have been made in building
-                            neural network models for ad-hoc microphone arrays, while they cannot fully leverage the array-dependent information
-                            used by array-specific models. In this paper, we propose Galatea, a unified geometry-aware source localization and
-                            separation framework that can build models for both ad-hoc arrays and geometry-specific arrays. We introduce random
-                            array geometry sampling with a fast on-the-fly data simulation process for general ad-hoc arrays, geometry-dependent
-                            feature extraction for array-specific finetuning, and a novel model architecture to boost both the localization and
-                            separation performance. Experimental results on different array geometries demonstrate the effectiveness of Galatea.
+                            Many of the existing systems for multi-channel sound source localization and separation are
+                            built on or designed for
+                            specific microphone array geometries, which means that for a new scenario where the array
+                            geometry or number of
+                            microphones is different, the system needs to be re-designed or re-trained. Recent attempts
+                            have been made in building
+                            neural network models for ad-hoc microphone arrays, while they cannot fully leverage the
+                            array-dependent information
+                            used by array-specific models. In this paper, we propose Galatea, a unified geometry-aware
+                            source localization and
+                            separation framework that can build models for both ad-hoc arrays and geometry-specific
+                            arrays. We introduce random
+                            array geometry sampling with a fast on-the-fly data simulation process for general ad-hoc
+                            arrays, geometry-dependent
+                            feature extraction for array-specific finetuning, and a novel model architecture to boost
+                            both the localization and
+                            separation performance. Experimental results on different array geometries demonstrate the
+                            effectiveness of Galatea.
                         </p>
                     </div>
                 </div>
@@ -103,42 +113,65 @@
                     <h2 class="title is-3">Validation of multi-look DFs across arrays</h2>
                     <div class="content has-text-justified">
                         <p>
-                            In order to verify that the essential contents of multi-look DFs are similar and their variations are relatively small across different microphone arrays, the below figure illustrates multi-look DFs computed from a 4 mic LA, a 6 mic CA and a 5 mic ad-hoc array with the same simulation configuration. The two speakers are located at 0° and 180° respect to the microphone array center, respectively.
+                            In order to verify that the essential contents of multi-look DFs are similar and their
+                            variations are relatively small across different microphone arrays, the below figure
+                            illustrates multi-look DFs computed from a 4 mic LA, a 6 mic CA and a 5 mic ad-hoc array
+                            with the same simulation configuration. The two speakers are located at 0° and 180° respect
+                            to the microphone array center, respectively.
                         </p>
                     </div>
                     <div class="img has-text-centered">
                         <!-- Your image here -->
                         <img src="static/images/DFs.png" alt="the image of lps" />
                         <h2 class="subtitle has-text-justified">
-                            A simulated mixture sample with target speech sources located at 0° and 180°, respectively.  
-                            (a) The geometry of three types of microphone arrays including 4 mic linear array (LA), 6 mic circular array (CA) and 5 mic ad-hoc array. 
-                            (b) The logarithm power spectrum (LPS) of mixture and target speech signals. 
+                            A simulated mixture sample with target speech sources located at 0° and 180°, respectively.
+                            (a) The geometry of three types of microphone arrays including 4 mic linear array (LA), 6
+                            mic circular array (CA) and 5 mic ad-hoc array.
+                            (b) The logarithm power spectrum (LPS) of mixture and target speech signals.
                             (c) Multi-look DFs extracted at four directions with different microphone arrays.
                         </h2>
                     </div>
                     <div class="content">
+                        <br>
                         <table>
                             <thead>
-								<tr align="center">
-									<th><center><h3>Array geometry</h3></center></th>
-									<th><center><h3>Mixture (multi-channel)</h3></center></th>
-									<th><center><h3>Source 1</h3></center> </th>
-									<th><center><h3>Source 2</h3></center></th>
-								</tr>
-							</thead>
+                                <tr align="center">
+                                    <th>
+                                        <center>
+                                            <h3>Array geometry</h3>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h3>Mixture (multi-channel)</h3>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h3>Source 1</h3>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h3>Source 2</h3>
+                                        </center>
+                                    </th>
+                                </tr>
+                            </thead>
                             <tbody>
                                 <tr style="border-top:1px solid black" align="center">
                                     <td>
                                         <center>4 mic LA</center>
                                     </td>
                                     <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
-                                        <source src="/static/audios/DFs/4mic_LA.wav">
-                                    </audio></td></td>
+                                            <source src="static/audios/DFs/4mic_LA.wav">
+                                        </audio></td>
+                                    </td>
                                     <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
-                                            <source src="/static/audios/DFs/4mic_LA_s1.wav">
+                                            <source src="static/audios/DFs/4mic_LA_s1.wav">
                                         </audio></td>
                                     <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
-                                            <source src="/static/audios/DFs/4mic_LA_s2.wav">
+                                            <source src="static/audios/DFs/4mic_LA_s2.wav">
                                         </audio></td>
                                 </tr>
                                 <tr style="border-top:1px solid black" align="center">
@@ -168,7 +201,7 @@
                                             <source src="static/audios/DFs/5mic_adhoc_s1.wav">
                                         </audio></td>
                                     <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
-                                            <source src="static/audios/DFs/5mic_adhoc_S2.wav">
+                                            <source src="static/audios/DFs/5mic_adhoc_s2.wav">
                                         </audio></td>
                                 </tr>
                             </tbody>
