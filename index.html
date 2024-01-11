@@ -113,11 +113,17 @@
                     <h2 class="title is-3">Validation of multi-look DFs across arrays</h2>
                     <div class="content has-text-justified">
                         <p>
-                            In order to verify that the essential contents of multi-look DFs are similar and their
-                            variations are relatively small across different microphone arrays, the below figure
-                            illustrates multi-look DFs computed from a 4 mic LA, a 6 mic CA and a 5 mic ad-hoc array
-                            with the same simulation configuration. The two speakers are located at 0° and 180° respect
-                            to the microphone array center, respectively.
+                            In order to verify that the essential contents of multi-look directional features (DFs) are
+                            similar
+                            and their variations are relatively small across different microphone arrays,
+                            the below figure shows multi-look DFs computed from
+                            a 4 mic linear array (LA), a 6 mic circular array (CA) and a 5 mic ad-hoc array with the
+                            same simulation configuration.
+                            The two speakers are located at 0° and 180° respect to the microphone array center,
+                            respectively.
+                            Although the nature of DFs is satisfied under different conditions, in order to better
+                            illustrate DFs,
+                            the SIR between two speech sources is set to 0dB, and the SNR is set to 15dB.
                         </p>
                     </div>
                     <div class="img has-text-centered">
@@ -213,40 +219,136 @@
     </section>
     <!-- End direction feature -->
 
-    <!-- Results on 2 mic -->
+    <!-- Results on simulation data -->
     <section class="hero is-small">
         <div class="hero-body">
             <div class="container">
                 <div id="publication-body" class="publication-body">
-                    <h2 class="title is-3">Results on dual-microphone array</h2>
+                    <h2 class="title is-3">Results on simulation data</h2>
                     <div class="content has-text-justified">
                         <p>
-                            The adopted microphone array is a dual-microphone array (2 mic) with 10.5 cm spacing.
+                            To verfiy the university of Galatea for both ad-hoc and specific microphone arrays,
+                            we set up several acoustic scenarios and simulate the mixture signals received by
+                            microphone arrays with different geometries in each scenario.
+                            We present the sound source localization results of Loc-BSRNN and the speech separation
+                            results of SS-BSRNN.
+                            <br>
+                            <i>
+                                (Due to the front-back symmetry property of the linear microphone array, we map its SSL
+                                results to a range of [-90°, 90°])
+                            </i>
                         </p>
                     </div>
+
+                    <!-- simulation config 1 -->
                     <div class="content">
-                        <br>
+                        <h3 class="title is-4">Results on simulation configuration 1</h3>
+
                         <table>
                             <thead>
+                                <tr style="border-top:1px solid black" align="center"></tr>
                                 <tr align="center">
                                     <th>
                                         <center>
-                                            <h3>Ground Truth DoAs</h3>
+                                            <h4># of sources</h4>
                                         </center>
                                     </th>
                                     <th>
                                         <center>
-                                            <h3>Mixture</h3>
+                                            <h4>DoAs of sources</h4>
                                         </center>
                                     </th>
                                     <th>
                                         <center>
-                                            <h3>Loc-BSRNN Output</h3>
+                                            <h4>DoAs of point noise</h4>
                                         </center>
                                     </th>
                                     <th>
                                         <center>
-                                            <h3>SS-BSRNN Output</h3>
+                                            <h4>T60 (s)</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>overlap ratio (%)</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>SIR (dB)</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>SNR (dB)</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>RIR backend</h4>
+                                        </center>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-top:1px solid black" align="center">
+                                    <td>
+                                        <center>N = 1</center>
+                                    </td>
+                                    <td>
+                                        <center>[30°]</center>
+                                    </td>
+                                    <td>
+                                        <center>[120°]</center>
+                                    </td>
+                                    <td>
+                                        <center>0.2s</center>
+                                    </td>
+                                    <td>
+                                        <center>None</center>
+                                    </td>
+                                    <td>
+                                        <center>None</center>
+                                    </td>
+                                    <td>
+                                        <center>5dB</center>
+                                    </td>
+                                    <td>
+                                        <center>gpuRIR</center>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom:1px solid black" align="center"></tr>
+                            </tbody>
+                        </table>
+                        <br><br>
+
+                        <table>
+                            <thead>
+                                <tr style="border-top:1px solid black" align="center"></tr>
+                                <tr align="center">
+                                    <th>
+                                        <center>
+                                            <h4>array geometry</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>Mixture</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>Loc-BSRNN Output</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>SS-BSRNN Output</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>FasNet-TAC Output</h4>
                                         </center>
                                     </th>
                                 </tr>
@@ -255,136 +357,245 @@
                                 <tr style="border-top:1px solid black" align="center">
                                     <td>
                                         <center>
-                                            N = 1: [-50°]
+                                            dual-microphone
+                                            <br>with 10.5 cm spacing
                                         </center>
                                     </td>
                                     <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
-                                            <source src="static/audios/2mic/170_1.wav">
+                                            <source src="static/audios/config1/2mic.wav">
                                         </audio></td>
                                     </td>
                                     <td>
                                         <center>
-                                            N = 1: [-50°]
+                                            N = 1, [30°]
                                         </center>
                                     </td>
-                                    <td><audio controls class="audio-player" preload="metadata" style="width:360px;">
-                                            <source src="static/audios/2mic/170_1_spk1.wav">
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
+                                            <source src="static/audios/config1/2mic_out1.wav">
+                                        </audio>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
+                                            <source src="static/audios/config1/2mic_out1_tac.wav">
                                         </audio>
                                     </td>
                                 </tr>
                                 <tr style="border-top:1px solid black" align="center">
                                     <td>
                                         <center>
-                                            N = 2: [-60°, -30°]
+                                            4-microphone linear array
+                                            <br>with a uniform spacing of 3.5 cm
                                         </center>
                                     </td>
                                     <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
-                                            <source src="static/audios/2mic/130_2.wav">
+                                            <source src="static/audios/config1/4micLA.wav">
                                         </audio></td>
                                     </td>
                                     <td>
                                         <center>
-                                            N = 2: [-60°, -30°]
+                                            N = 1, [30°]
                                         </center>
                                     </td>
-                                    <td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/2mic/130_2_spk1.wav">
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
+                                            <source src="static/audios/config1/4micLA_out1.wav">
                                         </audio>
-                                        <audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/2mic/130_2_spk2.wav">
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
+                                            <source src="static/audios/config1/4micLA_out1_tac.wav">
                                         </audio>
                                     </td>
                                 </tr>
                                 <tr style="border-top:1px solid black" align="center">
                                     <td>
                                         <center>
-                                            N = 2: [0°, 70°]
+                                            4-microphone RA
+                                            <br>with a side length of 7.5 cm
                                         </center>
                                     </td>
                                     <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
-                                            <source src="static/audios/2mic/380_2.wav">
+                                            <source src="static/audios/config1/4micRA.wav">
                                         </audio></td>
                                     </td>
                                     <td>
                                         <center>
-                                            N = 2: [0°, 70°]
+                                            N = 1, [30°]
                                         </center>
                                     </td>
-                                    <td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/2mic/380_2_spk1.wav">
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
+                                            <source src="static/audios/config1/4micRA_out1.wav">
                                         </audio>
-                                        <audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/2mic/380_2_spk2.wav">
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
+                                            <source src="static/audios/config1/4micRA_out1_tac.wav">
                                         </audio>
                                     </td>
                                 </tr>
                                 <tr style="border-top:1px solid black" align="center">
                                     <td>
                                         <center>
-                                            N = 2: [20°, 60°]
+                                            6-microphone CA
+                                            <br>with a diameter of 10.5 cm;
                                         </center>
                                     </td>
                                     <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
-                                            <source src="static/audios/2mic/94_2.wav">
+                                            <source src="static/audios/config1/6micCA.wav">
                                         </audio></td>
                                     </td>
                                     <td>
                                         <center>
-                                            N = 2: [20°, 60°]
+                                            N = 1, [30°]
                                         </center>
                                     </td>
-                                    <td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/2mic/94_2_spk1.wav">
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
+                                            <source src="static/audios/config1/6micCA_out1.wav">
                                         </audio>
-                                        <audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/2mic/94_2_spk2.wav">
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
+                                            <source src="static/audios/config1/6micCA_out1_tac.wav">
                                         </audio>
                                     </td>
                                 </tr>
+                                <tr style="border-top:1px solid black" align="center">
+                                    <td>
+                                        <center>
+                                            ad-hoc microphone array
+                                            <br>with 5 microphones;
+                                        </center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
+                                            <source src="static/audios/config1/adhoc.wav">
+                                        </audio></td>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            N = 1, [30°]
+                                        </center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
+                                            <source src="static/audios/config1/adhoc_out1.wav">
+                                        </audio>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
+                                            <source src="static/audios/config1/adhoc_out1_tac.wav">
+                                        </audio>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom:1px solid black" align="center"></tr>
                             </tbody>
                         </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End results on 2 mic -->
 
-    <!-- Results on 4 mic LA -->
-    <section class="hero is-small">
-        <div class="hero-body">
-            <div class="container">
-                <div id="publication-body" class="publication-body">
-                    <h2 class="title is-3">Results on 4-microphone linear array</h2>
-                    <div class="content has-text-justified">
-                        <p>
-                            The adopted microphone array is a 4-microphone linear array (4 mic LA) with a uniform
-                            spacing of 3.5 cm.
-                        </p>
                     </div>
+                    <!-- End simulation config 1 -->
+
+                    <!-- simulation config 2 -->
                     <div class="content">
                         <br>
+                        <h3 class="title is-4">Results on simulation configuration 2</h3>
+
                         <table>
                             <thead>
+                                <tr style="border-top:1px solid black" align="center"></tr>
                                 <tr align="center">
                                     <th>
                                         <center>
-                                            <h3>Ground Truth DoAs</h3>
+                                            <h4># of sources</h4>
                                         </center>
                                     </th>
                                     <th>
                                         <center>
-                                            <h3>Mixture</h3>
+                                            <h4>DoAs of sources</h4>
                                         </center>
                                     </th>
                                     <th>
                                         <center>
-                                            <h3>Loc-BSRNN Output</h3>
+                                            <h4>DoAs of point noise</h4>
                                         </center>
                                     </th>
                                     <th>
                                         <center>
-                                            <h3>SS-BSRNN Output</h3>
+                                            <h4>T60 (s)</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>overlap ratio (%)</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>SIR (dB)</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>SNR (dB)</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>RIR backend</h4>
+                                        </center>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-top:1px solid black" align="center">
+                                    <td>
+                                        <center>N = 2</center>
+                                    </td>
+                                    <td>
+                                        <center>[-60°, 40°]</center>
+                                    </td>
+                                    <td>
+                                        <center>[10°]</center>
+                                    </td>
+                                    <td>
+                                        <center>0.3s</center>
+                                    </td>
+                                    <td>
+                                        <center>60%</center>
+                                    </td>
+                                    <td>
+                                        <center>0.0dB</center>
+                                    </td>
+                                    <td>
+                                        <center>8.0dB</center>
+                                    </td>
+                                    <td>
+                                        <center>FRAM-RIR</center>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom:1px solid black" align="center"></tr>
+                            </tbody>
+                        </table>
+                        <br><br>
+
+                        <table>
+                            <thead>
+                                <tr style="border-top:1px solid black" align="center"></tr>
+                                <tr align="center">
+                                    <th>
+                                        <center>
+                                            <h4>array geometry</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>Mixture</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>Loc-BSRNN Output</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>SS-BSRNN Output</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>FasNet-TAC Output</h4>
                                         </center>
                                     </th>
                                 </tr>
@@ -393,136 +604,275 @@
                                 <tr style="border-top:1px solid black" align="center">
                                     <td>
                                         <center>
-                                            N = 1: [-40°]
+                                            dual-microphone
+                                            <br>with 10.5 cm spacing
                                         </center>
                                     </td>
                                     <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
-                                            <source src="static/audios/4micLA/577_1.wav">
+                                            <source src="static/audios/config2/2mic.wav">
                                         </audio></td>
                                     </td>
                                     <td>
                                         <center>
-                                            N = 1: [-40°]
+                                            N = 2, [-60°, 40°]
                                         </center>
                                     </td>
-                                    <td><audio controls class="audio-player" preload="metadata" style="width:360px;">
-                                            <source src="static/audios/4micLA/577_1_spk1.wav">
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config2/2mic_out1.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config2/2mic_out2.wav">
+                                        </audio>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config2/2mic_out1_tac.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config2/2mic_out2_tac.wav">
                                         </audio>
                                     </td>
                                 </tr>
                                 <tr style="border-top:1px solid black" align="center">
                                     <td>
                                         <center>
-                                            N = 2: [70°, 80°]
+                                            4-microphone linear array
+                                            <br>with a uniform spacing of 3.5 cm
                                         </center>
                                     </td>
                                     <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
-                                            <source src="static/audios/4micLA/899_2.wav">
+                                            <source src="static/audios/config2/4micLA.wav">
                                         </audio></td>
                                     </td>
                                     <td>
                                         <center>
-                                            N = 2: [70°, 80°]
+                                            N = 2, [-60°, 40°]
                                         </center>
                                     </td>
-                                    <td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/4micLA/899_2_spk1.wav">
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config2/4micLA_out1.wav">
                                         </audio>
-                                        <audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/4micLA/899_2_spk2.wav">
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config2/4micLA_out2.wav">
+                                        </audio>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config2/4micLA_out1_tac.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config2/4micLA_out2_tac.wav">
                                         </audio>
                                     </td>
                                 </tr>
                                 <tr style="border-top:1px solid black" align="center">
                                     <td>
                                         <center>
-                                            N = 2: [30°, 60°]
+                                            4-microphone RA
+                                            <br>with a side length of 7.5 cm
                                         </center>
                                     </td>
                                     <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
-                                            <source src="static/audios/4micLA/710_2.wav">
+                                            <source src="static/audios/config2/4micRA.wav">
                                         </audio></td>
                                     </td>
                                     <td>
                                         <center>
-                                            N = 2: [30°, 60°]
+                                            N = 2, [-60°, 40°]
                                         </center>
                                     </td>
-                                    <td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/4micLA/710_2_spk1.wav">
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config2/4micRA_out1.wav">
                                         </audio>
-                                        <audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/4micLA/710_2_spk2.wav">
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config2/4micRA_out2.wav">
+                                        </audio>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config2/4micRA_out1_tac.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config2/4micRA_out2_tac.wav">
                                         </audio>
                                     </td>
                                 </tr>
                                 <tr style="border-top:1px solid black" align="center">
                                     <td>
                                         <center>
-                                            N = 2: [-80°, 40°]
+                                            6-microphone CA
+                                            <br>with a diameter of 10.5 cm;
                                         </center>
                                     </td>
                                     <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
-                                            <source src="static/audios/4micLA/960_2.wav">
+                                            <source src="static/audios/config2/6micCA.wav">
                                         </audio></td>
                                     </td>
                                     <td>
                                         <center>
-                                            N = 2: [-80°, 40°]
+                                            N = 2, [-60°, 40°]
                                         </center>
                                     </td>
-                                    <td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/4micLA/960_2_spk1.wav">
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config2/6micCA_out1.wav">
                                         </audio>
-                                        <audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/4micLA/960_2_spk2.wav">
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config2/6micCA_out2.wav">
+                                        </audio>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config2/6micCA_out1_tac.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config2/6micCA_out2_tac.wav">
                                         </audio>
                                     </td>
                                 </tr>
+                                <tr style="border-top:1px solid black" align="center">
+                                    <td>
+                                        <center>
+                                            ad-hoc microphone array
+                                            <br>with 4 microphones;
+                                        </center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
+                                            <source src="static/audios/config2/adhoc.wav">
+                                        </audio></td>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            N = 2, [-60°, 40°]
+                                        </center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config2/adhoc_out1.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config2/adhoc_out2.wav">
+                                        </audio>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config2/adhoc_out1_tac.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config2/adhoc_out2_tac.wav">
+                                        </audio>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom:1px solid black" align="center"></tr>
                             </tbody>
                         </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End results on 4 mic LA -->
 
-    <!-- Results on 4 mic RA -->
-    <section class="hero is-small">
-        <div class="hero-body">
-            <div class="container">
-                <div id="publication-body" class="publication-body">
-                    <h2 class="title is-3">Results on 4-microphone rectangular array</h2>
-                    <div class="content has-text-justified">
-                        <p>
-                            The adopted microphone array is a 4-microphone square array (4 mic RA) with a side length of
-                            7.5 cm
-                        </p>
                     </div>
+                    <!-- End simulation config 2 -->
+
+                    <!-- simulation config 3 -->
                     <div class="content">
                         <br>
+                        <h3 class="title is-4">Results on simulation configuration 3</h3>
+
                         <table>
                             <thead>
+                                <tr style="border-top:1px solid black" align="center"></tr>
                                 <tr align="center">
                                     <th>
                                         <center>
-                                            <h3>Ground Truth DoAs</h3>
+                                            <h4># of sources</h4>
                                         </center>
                                     </th>
                                     <th>
                                         <center>
-                                            <h3>Mixture</h3>
+                                            <h4>DoAs of sources</h4>
                                         </center>
                                     </th>
                                     <th>
                                         <center>
-                                            <h3>Loc-BSRNN Output</h3>
+                                            <h4>DoAs of point noise</h4>
                                         </center>
                                     </th>
                                     <th>
                                         <center>
-                                            <h3>SS-BSRNN Output</h3>
+                                            <h4>T60 (s)</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>overlap ratio (%)</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>SIR (dB)</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>SNR (dB)</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>RIR backend</h4>
+                                        </center>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-top:1px solid black" align="center">
+                                    <td>
+                                        <center>N = 2</center>
+                                    </td>
+                                    <td>
+                                        <center>[10°, 30°]</center>
+                                    </td>
+                                    <td>
+                                        <center>[60°]</center>
+                                    </td>
+                                    <td>
+                                        <center>0.3s</center>
+                                    </td>
+                                    <td>
+                                        <center>10%</center>
+                                    </td>
+                                    <td>
+                                        <center>3.0dB</center>
+                                    </td>
+                                    <td>
+                                        <center>6.0dB</center>
+                                    </td>
+                                    <td>
+                                        <center>gpuRIR</center>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom:1px solid black" align="center"></tr>
+                            </tbody>
+                        </table>
+                        <br><br>
+
+                        <table>
+                            <thead>
+                                <tr style="border-top:1px solid black" align="center"></tr>
+                                <tr align="center">
+                                    <th>
+                                        <center>
+                                            <h4>array geometry</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>Mixture</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>Loc-BSRNN Output</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>SS-BSRNN Output</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>FasNet-TAC Output</h4>
                                         </center>
                                     </th>
                                 </tr>
@@ -531,137 +881,275 @@
                                 <tr style="border-top:1px solid black" align="center">
                                     <td>
                                         <center>
-                                            N = 1: [70°]
+                                            dual-microphone
+                                            <br>with 8.0 cm spacing
                                         </center>
                                     </td>
                                     <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
-                                            <source src="static/audios/4micRA/25_1.wav">
+                                            <source src="static/audios/config3/2mic.wav">
                                         </audio></td>
                                     </td>
                                     <td>
                                         <center>
-                                            N = 1: [70°]
+                                            N = 2, [10°, 30°]
                                         </center>
                                     </td>
-                                    <td><audio controls class="audio-player" preload="metadata" style="width:360px;">
-                                            <source src="static/audios/4micRA/25_1_spk1.wav">
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config3/2mic_out1.wav">
                                         </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config3/2mic_out2.wav">
+                                        </audio>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config3/2mic_out1_tac.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config3/2mic_out2_tac.wav">
                                         </audio>
                                     </td>
                                 </tr>
                                 <tr style="border-top:1px solid black" align="center">
                                     <td>
                                         <center>
-                                            N = 2: [70°, 160°]
+                                            4-microphone linear array
+                                            <br>with a uniform spacing of 4.0 cm
                                         </center>
                                     </td>
                                     <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
-                                            <source src="static/audios/4micRA/139_2.wav">
+                                            <source src="static/audios/config3/4micLA.wav">
                                         </audio></td>
                                     </td>
                                     <td>
                                         <center>
-                                            N = 2: [70°, 160°]
+                                            N = 2, [10°, 30°]
                                         </center>
                                     </td>
-                                    <td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/4micRA/139_2_spk1.wav">
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config3/4micLA_out1.wav">
                                         </audio>
-                                        <audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/4micRA/139_2_spk2.wav">
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config3/4micLA_out2.wav">
+                                        </audio>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config3/4micLA_out1_tac.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config3/4micLA_out2_tac.wav">
                                         </audio>
                                     </td>
                                 </tr>
                                 <tr style="border-top:1px solid black" align="center">
                                     <td>
                                         <center>
-                                            N = 2: [-170°, 30°]
+                                            4-microphone RA
+                                            <br>with a side length of 7.0 cm
                                         </center>
                                     </td>
                                     <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
-                                            <source src="static/audios/4micRA/390_2.wav">
+                                            <source src="static/audios/config3/4micRA.wav">
                                         </audio></td>
                                     </td>
                                     <td>
                                         <center>
-                                            N = 2: [-170°, 30°]
+                                            N = 2, [10°, 30°]
                                         </center>
                                     </td>
-                                    <td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/4micRA/390_2_spk1.wav">
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config3/4micRA_out1.wav">
                                         </audio>
-                                        <audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/4micRA/390_2_spk2.wav">
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config3/4micRA_out2.wav">
+                                        </audio>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config3/4micRA_out1_tac.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config3/4micRA_out2_tac.wav">
                                         </audio>
                                     </td>
                                 </tr>
                                 <tr style="border-top:1px solid black" align="center">
                                     <td>
                                         <center>
-                                            N = 2: [-120°, 170°]
+                                            6-microphone CA
+                                            <br>with a diameter of 12.0 cm;
                                         </center>
                                     </td>
                                     <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
-                                            <source src="static/audios/4micRA/610_2.wav">
+                                            <source src="static/audios/config3/6micCA.wav">
                                         </audio></td>
                                     </td>
                                     <td>
                                         <center>
-                                            N = 2: [-120°, 170°]
+                                            N = 2, [10°, 30°]
                                         </center>
                                     </td>
-                                    <td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/4micRA/610_2_spk1.wav">
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config3/6micCA_out1.wav">
                                         </audio>
-                                        <audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/4micRA/610_2_spk2.wav">
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config3/6micCA_out2.wav">
+                                        </audio>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config3/6micCA_out1_tac.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config3/6micCA_out2_tac.wav">
                                         </audio>
                                     </td>
                                 </tr>
+                                <tr style="border-top:1px solid black" align="center">
+                                    <td>
+                                        <center>
+                                            ad-hoc microphone array
+                                            <br>with 3 microphones;
+                                        </center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
+                                            <source src="static/audios/config3/adhoc.wav">
+                                        </audio></td>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            N = 2, [10°, 30°]
+                                        </center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config3/adhoc_out1.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config3/adhoc_out2.wav">
+                                        </audio>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config3/adhoc_out1_tac.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config3/adhoc_out2_tac.wav">
+                                        </audio>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom:1px solid black" align="center"></tr>
                             </tbody>
                         </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End results on 4 mic RA -->
 
-    <!-- Results on 6 mic CA -->
-    <section class="hero is-small">
-        <div class="hero-body">
-            <div class="container">
-                <div id="publication-body" class="publication-body">
-                    <h2 class="title is-3">Results on 6-microphone circular array</h2>
-                    <div class="content has-text-justified">
-                        <p>
-                            The adopted microphone array is a 6-microphone circular array (6 mic CA) with a diameter of
-                            10.5 cm
-                        </p>
                     </div>
+                    <!-- End simulation config 3 -->
+
+                    <!-- simulation config 4 -->
                     <div class="content">
                         <br>
+                        <h3 class="title is-4">Results on simulation configuration 4</h3>
+
                         <table>
                             <thead>
+                                <tr style="border-top:1px solid black" align="center"></tr>
                                 <tr align="center">
                                     <th>
                                         <center>
-                                            <h3>Ground Truth DoAs</h3>
+                                            <h4># of sources</h4>
                                         </center>
                                     </th>
                                     <th>
                                         <center>
-                                            <h3>Mixture</h3>
+                                            <h4>DoAs of sources</h4>
                                         </center>
                                     </th>
                                     <th>
                                         <center>
-                                            <h3>Loc-BSRNN Output</h3>
+                                            <h4>DoAs of point noise</h4>
                                         </center>
                                     </th>
                                     <th>
                                         <center>
-                                            <h3>SS-BSRNN Output</h3>
+                                            <h4>T60 (s)</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>overlap ratio (%)</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>SIR (dB)</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>SNR (dB)</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>RIR backend</h4>
+                                        </center>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-top:1px solid black" align="center">
+                                    <td>
+                                        <center>N = 2</center>
+                                    </td>
+                                    <td>
+                                        <center>[70°, 170°]</center>
+                                    </td>
+                                    <td>
+                                        <center>[150°]</center>
+                                    </td>
+                                    <td>
+                                        <center>0.4s</center>
+                                    </td>
+                                    <td>
+                                        <center>90%</center>
+                                    </td>
+                                    <td>
+                                        <center>-3.0dB</center>
+                                    </td>
+                                    <td>
+                                        <center>5.0dB</center>
+                                    </td>
+                                    <td>
+                                        <center>FRAM-RIR</center>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom:1px solid black" align="center"></tr>
+                            </tbody>
+                        </table>
+                        <br><br>
+
+                        <table>
+                            <thead>
+                                <tr style="border-top:1px solid black" align="center"></tr>
+                                <tr align="center">
+                                    <th>
+                                        <center>
+                                            <h4>array geometry</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>Mixture</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>Loc-BSRNN Output</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>SS-BSRNN Output</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>FasNet-TAC Output</h4>
                                         </center>
                                     </th>
                                 </tr>
@@ -670,137 +1158,223 @@
                                 <tr style="border-top:1px solid black" align="center">
                                     <td>
                                         <center>
-                                            N = 1: [-60°]
+                                            dual-microphone
+                                            <br>with 12.0 cm spacing
                                         </center>
                                     </td>
                                     <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
-                                            <source src="static/audios/6micCA/587_1.wav">
+                                            <source src="static/audios/config4/2mic.wav">
                                         </audio></td>
                                     </td>
                                     <td>
                                         <center>
-                                            N = 1: [-60°]
+                                            N = 2, [70°, -10°]
                                         </center>
                                     </td>
-                                    <td><audio controls class="audio-player" preload="metadata" style="width:360px;">
-                                            <source src="static/audios/6micCA/587_1_spk1.wav">
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config4/2mic_out1.wav">
                                         </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config4/2mic_out2.wav">
+                                        </audio>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config4/2mic_out1_tac.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config4/2mic_out2_tac.wav">
                                         </audio>
                                     </td>
                                 </tr>
                                 <tr style="border-top:1px solid black" align="center">
                                     <td>
                                         <center>
-                                            N = 2: [-80°, -120°]
+                                            4-microphone linear array
+                                            <br>with a uniform spacing of 5.0 cm
                                         </center>
                                     </td>
                                     <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
-                                            <source src="static/audios/6micCA/1_2.wav">
+                                            <source src="static/audios/config4/4micLA.wav">
                                         </audio></td>
                                     </td>
                                     <td>
                                         <center>
-                                            N = 2: [-80°, -120°]
+                                            N = 2, [70°, -10°]
                                         </center>
                                     </td>
-                                    <td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/6micCA/1_2_spk1.wav">
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config4/4micLA_out1.wav">
                                         </audio>
-                                        <audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/6micCA/1_2_spk2.wav">
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config4/4micLA_out2.wav">
+                                        </audio>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config4/4micLA_out1_tac.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config4/4micLA_out2_tac.wav">
                                         </audio>
                                     </td>
                                 </tr>
                                 <tr style="border-top:1px solid black" align="center">
                                     <td>
                                         <center>
-                                            N = 2: [-110°, 20°]
+                                            4-microphone RA
+                                            <br>with a side length of 10.0 cm
                                         </center>
                                     </td>
                                     <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
-                                            <source src="static/audios/6micCA/191_2.wav">
+                                            <source src="static/audios/config4/4micRA.wav">
                                         </audio></td>
                                     </td>
                                     <td>
                                         <center>
-                                            N = 2: [-110°, 20°]
+                                            N = 2, [70°, 170°]
                                         </center>
                                     </td>
-                                    <td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/6micCA/191_2_spk1.wav">
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config4/4micRA_out1.wav">
                                         </audio>
-                                        <audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/6micCA/191_2_spk2.wav">
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config4/4micRA_out2.wav">
+                                        </audio>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config4/4micRA_out1_tac.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config4/4micRA_out2_tac.wav">
                                         </audio>
                                     </td>
                                 </tr>
                                 <tr style="border-top:1px solid black" align="center">
                                     <td>
                                         <center>
-                                            N = 2: [-110°, -130°]
+                                            6-microphone CA
+                                            <br>with a diameter of 8.0 cm;
                                         </center>
                                     </td>
                                     <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
-                                            <source src="static/audios/6micCA/996_2.wav">
+                                            <source src="static/audios/config4/6micCA.wav">
                                         </audio></td>
                                     </td>
                                     <td>
                                         <center>
-                                            N = 2: [-110°, -130°]
+                                            N = 2, [70°, 170°]
                                         </center>
                                     </td>
-                                    <td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/6micCA/996_2_spk1.wav">
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config4/6micCA_out1.wav">
                                         </audio>
-                                        <audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/6micCA/996_2_spk2.wav">
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config4/6micCA_out2.wav">
+                                        </audio>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config4/6micCA_out1_tac.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config4/6micCA_out2_tac.wav">
                                         </audio>
                                     </td>
                                 </tr>
+                                <tr style="border-top:1px solid black" align="center">
+                                    <td>
+                                        <center>
+                                            ad-hoc microphone array
+                                            <br>with 7 microphones;
+                                        </center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
+                                            <source src="static/audios/config4/adhoc.wav">
+                                        </audio></td>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            N = 2, [70°, 170°]
+                                        </center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config4/adhoc_out1.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config4/adhoc_out2.wav">
+                                        </audio>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config4/adhoc_out1_tac.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/config4/adhoc_out2_tac.wav">
+                                        </audio>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom:1px solid black" align="center"></tr>
                             </tbody>
                         </table>
+
                     </div>
+                    <!-- End simulation config 4 -->
+
                 </div>
             </div>
         </div>
     </section>
-    <!-- End results on 6 mic CA -->
+    <!-- End results on simulation data -->
 
-    <!-- Results on ad-hoc -->
+    <!-- Results on real-recorded data -->
     <section class="hero is-small">
         <div class="hero-body">
             <div class="container">
                 <div id="publication-body" class="publication-body">
-                    <h2 class="title is-3">Results ad-hoc microphone array</h2>
+                    <h2 class="title is-3">Results on real-recorded data</h2>
                     <div class="content has-text-justified">
                         <p>
-                            The adopted microphone array is ad-hoc microphone array that randomly sample 2 to 8
-                            microphones within the bounding box of [30, 30] cm
+                            The figure below gives an application scenario of offline conference.
+                            The conversation takes place in a coference room (about 10 * 6 * 4 m).
+                            A conference table is placed at the center of the room with the microphone array put on the
+                            table.
+                            Two male speakers sit by the the table at 90° and 0° relative to the center of microphone
+                            array, respectively.
+                            The distance-to-array is about 1.5 meters.
+                            A 8-element linear array with a uniform spacing of 3.5 cm is used to record the session,
+                            and we select different combinations from it to form arrays
+                            with different geometries and numbers of microphones.
                         </p>
                     </div>
+                    <div class="img has-text-centered">
+                        <!-- Your image here -->
+                        <img src="static/images/conference_room.png" alt="the image of conference room" />
+                        <p>
+                            Session: Two male speakers, loud game character voice, music, B-Box
+                        </p>
+                    </div>
+
                     <div class="content">
                         <br>
                         <table>
                             <thead>
+                                <tr style="border-top:1px solid black" align="center"></tr>
                                 <tr align="center">
                                     <th>
                                         <center>
-                                            <h3>Ground Truth DoAs</h3>
+                                            <h4>Microphone array ID</h4>
                                         </center>
                                     </th>
                                     <th>
                                         <center>
-                                            <h3>Mixture</h3>
+                                            <h4># of microphones</h4>
                                         </center>
                                     </th>
                                     <th>
                                         <center>
-                                            <h3>Loc-BSRNN Output</h3>
+                                            <h4>Index of microphones</h4>
                                         </center>
                                     </th>
                                     <th>
                                         <center>
-                                            <h3>SS-BSRNN Output</h3>
+                                            <h4>Microphone array spacing (cm)</h4>
                                         </center>
                                     </th>
                                 </tr>
@@ -808,103 +1382,345 @@
                             <tbody>
                                 <tr style="border-top:1px solid black" align="center">
                                     <td>
-                                        <center>
-                                            N = 1: [-80°]
-                                        </center>
-                                    </td>
-                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
-                                            <source src="static/audios/adhoc/118_1.wav">
-                                        </audio></td>
+                                        <center>1</center>
                                     </td>
                                     <td>
-                                        <center>
-                                            N = 1: [-80°]
-                                        </center>
+                                        <center>M = 2</center>
                                     </td>
-                                    <td><audio controls class="audio-player" preload="metadata" style="width:360px;">
-                                            <source src="static/audios/adhoc/118_1_spk1.wav">
-                                        </audio>
-                                        </audio>
+                                    <td>
+                                        <center>[3, 6]</center>
+                                    </td>
+                                    <td>
+                                        <center>10.5 cm</center>
                                     </td>
                                 </tr>
                                 <tr style="border-top:1px solid black" align="center">
                                     <td>
-                                        <center>
-                                            N = 2: [-30°, 30°]
-                                        </center>
-                                    </td>
-                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
-                                            <source src="static/audios/adhoc/309_2.wav">
-                                        </audio></td>
+                                        <center>2</center>
                                     </td>
                                     <td>
-                                        <center>
-                                            N = 2: [-30°, 30°]
-                                        </center>
+                                        <center>M = 3</center>
                                     </td>
-                                    <td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/adhoc/309_2_spk1.wav">
-                                        </audio>
-                                        <audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/adhoc/309_2_spk2.wav">
-                                        </audio>
+                                    <td>
+                                        <center>[2, 5, 7]</center>
+                                    </td>
+                                    <td>
+                                        <center>17.5 cm</center>
                                     </td>
                                 </tr>
                                 <tr style="border-top:1px solid black" align="center">
                                     <td>
-                                        <center>
-                                            N = 2: [-170°, -30°]
-                                        </center>
-                                    </td>
-                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
-                                            <source src="static/audios/adhoc/699_2.wav">
-                                        </audio></td>
+                                        <center>3</center>
                                     </td>
                                     <td>
-                                        <center>
-                                            N = 2: [-170°, -30°]
-                                        </center>
+                                        <center>M = 5</center>
                                     </td>
-                                    <td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/adhoc/699_2_spk1.wav">
-                                        </audio>
-                                        <audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/adhoc/699_2_spk2.wav">
-                                        </audio>
+                                    <td>
+                                        <center>[1, 3, 4, 5, 7]</center>
+                                    </td>
+                                    <td>
+                                        <center>21.0 cm</center>
                                     </td>
                                 </tr>
                                 <tr style="border-top:1px solid black" align="center">
                                     <td>
-                                        <center>
-                                            N = 2: [10°, 50°]
-                                        </center>
-                                    </td>
-                                    <td><audio controls class="audio-player" preload="metadata" style="width:240px;">
-                                            <source src="static/audios/adhoc/592_2.wav">
-                                        </audio></td>
+                                        <center>4</center>
                                     </td>
                                     <td>
-                                        <center>
-                                            N = 2: [10°, 50°]
-                                        </center>
+                                        <center>M = 8</center>
                                     </td>
-                                    <td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/adhoc/592_2_spk1.wav">
-                                        </audio>
-                                        <audio controls class="audio-player" preload="metadata" style="width:180px;">
-                                            <source src="static/audios/adhoc/592_2_spk2.wav">
-                                        </audio>
+                                    <td>
+                                        <center>[1, 2, 3, 4, 5, 6, 7, 8]</center>
+                                    </td>
+                                    <td>
+                                        <center>24.5 cm</center>
                                     </td>
                                 </tr>
+                                <tr style="border-bottom:1px solid black" align="center"></tr>
                             </tbody>
                         </table>
+
+                        <table>
+                            <br><br>
+                            <thead>
+                                <tr style="border-top:1px solid black" align="center"></tr>
+                                <tr align="center">
+                                    <th>
+                                        <center>
+                                            <h4>Time stamp</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>ID</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>Recording</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>Loc-BSRNN Output</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>SS-BSRNN Output</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>FasNet-TAC Output</h4>
+                                        </center>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-top:1px solid black" align="center">
+                                    <td rowspan="4">[10.0 ~ 36.0]</td>
+                                    <td>
+                                        <center>1</center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+                                            <source src="static/audios/recorded/time1-array1-mix.wav">
+                                        </audio></td>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            N = 2, [0°,90°]
+                                        </center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time1-array1-spk1.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time1-array1-spk2.wav">
+                                        </audio>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time1-array1-spk2-tac.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time1-array1-spk1-tac.wav">
+                                        </audio>
+                                    </td>
+                                </tr>
+                                <tr style="border-top:1px solid black" align="center">
+                                    <td>
+                                        <center>2</center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+                                            <source src="static/audios/recorded/time1-array2-mix.wav">
+                                        </audio></td>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            N = 2, [0°,90°]
+                                        </center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time1-array2-spk1.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time1-array2-spk2.wav">
+                                        </audio>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time1-array2-spk2-tac.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time1-array2-spk1-tac.wav">
+                                        </audio>
+                                    </td>
+                                </tr>
+                                <tr style="border-top:1px solid black" align="center">
+                                    <td>
+                                        <center>3</center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+                                            <source src="static/audios/recorded/time1-array3-mix.wav">
+                                        </audio></td>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            N = 2, [0°,90°]
+                                        </center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time1-array3-spk1.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time1-array3-spk2.wav">
+                                        </audio>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time1-array3-spk2-tac.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time1-array3-spk1-tac.wav">
+                                        </audio>
+                                    </td>
+                                </tr>
+                                <tr style="border-top:1px solid black" align="center">
+                                    <td>
+                                        <center>4</center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+                                            <source src="static/audios/recorded/time1-array4-mix.wav">
+                                        </audio></td>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            N = 2, [0°,90°]
+                                        </center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time1-array4-spk1.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time1-array4-spk2.wav">
+                                        </audio>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time1-array4-spk2-tac.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time1-array4-spk1-tac.wav">
+                                        </audio>
+                                    </td>
+                                </tr>
+
+                                <tr style="border-top:1px solid black" align="center">
+                                    <td rowspan="4">[39.0 ~ 61.0]</td>
+                                    <td>
+                                        <center>1</center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+                                            <source src="static/audios/recorded/time2-array1-mix.wav">
+                                        </audio></td>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            N = 2, [0°,90°]
+                                        </center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time2-array1-spk1.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time2-array1-spk2.wav">
+                                        </audio>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time2-array1-spk2-tac.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time2-array1-spk1-tac.wav">
+                                        </audio>
+                                    </td>
+                                </tr>
+                                <tr style="border-top:1px solid black" align="center">
+                                    <td>
+                                        <center>2</center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+                                            <source src="static/audios/recorded/time2-array2-mix.wav">
+                                        </audio></td>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            N = 2, [0°,90°]
+                                        </center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time2-array2-spk1.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time2-array2-spk2.wav">
+                                        </audio>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time2-array2-spk2-tac.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time2-array2-spk1-tac.wav">
+                                        </audio>
+                                    </td>
+                                </tr>
+                                <tr style="border-top:1px solid black" align="center">
+                                    <td>
+                                        <center>3</center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+                                            <source src="static/audios/recorded/time2-array3-mix.wav">
+                                        </audio></td>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            N = 2, [0°,90°]
+                                        </center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time2-array3-spk1.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time2-array3-spk2.wav">
+                                        </audio>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time2-array3-spk2-tac.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time2-array3-spk1-tac.wav">
+                                        </audio>
+                                    </td>
+                                </tr>
+                                <tr style="border-top:1px solid black" align="center">
+                                    <td>
+                                        <center>4</center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+                                            <source src="static/audios/recorded/time2-array4-mix.wav">
+                                        </audio></td>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            N = 2, [0°,90°]
+                                        </center>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time2-array4-spk1.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time2-array4-spk2.wav">
+                                        </audio>
+                                    </td>
+                                    <td><audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time2-array4-spk2-tac.wav">
+                                        </audio>
+                                        <audio controls class="audio-player" preload="metadata" style="width:120px;">
+                                            <source src="static/audios/recorded/time2-array4-spk1-tac.wav">
+                                        </audio>
+                                    </td>
+                                </tr>
+
+                                <tr style="border-bottom:1px solid black" align="center"></tr>
+                            </tbody>
+                        </table>
+
                     </div>
+
+
+
                 </div>
             </div>
         </div>
     </section>
-    <!-- End results on ad-hoc -->
+    <!-- End results on real-recorded data -->
 
+    <!-- footnote -->
     <footer class="footer">
         <div class="container">
             <div class="columns is-centered">
@@ -928,12 +1744,7 @@
             </div>
         </div>
     </footer>
-
-    <!-- Statcounter tracking code -->
-
-    <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
+    <!-- End footnote -->
 
 </body>
 
